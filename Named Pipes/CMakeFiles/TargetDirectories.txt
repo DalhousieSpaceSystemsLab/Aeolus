@@ -1,0 +1,3 @@
+/home/alex/Programming/C-C++/Named Pipes/CMakeFiles/rebuild_cache.dir
+/home/alex/Programming/C-C++/Named Pipes/CMakeFiles/stormeye.dir
+/home/alex/Programming/C-C++/Named Pipes/CMakeFiles/edit_cache.dir

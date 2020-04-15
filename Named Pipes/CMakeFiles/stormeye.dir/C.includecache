@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alex/Programming/C-C++/Named Pipes/src/main.c
+unistd.h
+-
+fcntl.h
+-
+string.h
+-
+stdio.h
+-
+unistd.h
+-
+
