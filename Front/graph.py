@@ -14,9 +14,10 @@ fig.update_layout(title='Pressure',
 
 fig.show()
 
-app = dash.Dash()
+app = dash.Dash(__name__)
 app.layout = html.Div([
     dcc.Graph(figure=fig)
 ])
 
-app.run_server(debug=True, use_reloader=False)
+if __name__ == '__main__':
+    app.run_server(debug=True)
