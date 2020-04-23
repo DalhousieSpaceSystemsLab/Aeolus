@@ -1,19 +1,22 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output
 import pandas as pd
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+import plotly.graph_objects as go
 
 df = pd.read_csv('testgraphvalues.csv')
 
-graph_names = df['Type'].unique()
-app.layout = html.Div([
-        ###
-    ])
+fig = go.Figure(go.Scatter(x=df['Time'], y=df['Value'], name='cmH2O'))
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+fig.update_layout(title='Pressure',
+                  plot_bgcolor='rgb(230, 230,230)',
+                  showlegend=True)
+
+fig.show()
+
+app = dash.Dash()
+app.layout = html.Div([
+    dcc.Graph(figure=fig)
+])
+
+app.run_server(debug=True, use_reloader=False)

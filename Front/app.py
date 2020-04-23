@@ -1,31 +1,24 @@
+import pandas as pd
+import plotly.graph_objects as go
+
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_apple_stock.csv')
+
+fig = go.Figure(go.Scatter(x = df['AAPL_x'], y = df['AAPL_y'],
+                  name='Share Prices (in USD)'))
+
+fig.update_layout(title='Apple Share Prices over time (2014)',
+                   plot_bgcolor='rgb(230, 230,230)',
+                   showlegend=True)
+
+fig.show()
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 
 app = dash.Dash()
+app.layout = html.Div([
+    dcc.Graph(figure=fig)
+])
 
-app.layout = html.Div(
-    children=[
-        html.H1(children='Hello Dash'),
-
-        html.Div(children='''
-            Dash: A web application framework for Python. Also, Beth sucks!
-        '''),
-
-        dcc.Graph(
-            id='example-graph',
-            figure={
-                'data': [
-                    {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'SF'},
-                    {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montreal'},
-                ],
-                'layout': {
-                    'title': 'Dash Data Visualization'
-                }
-            }
-        )
-    ]
-)
-
-if __name__ == '__main__':
-    app.run_server(debug=True)
+app.run_server(debug=True, use_reloader=False)  # Turn off reloader if inside Jupyter
