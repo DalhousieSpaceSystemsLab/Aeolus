@@ -1,0 +1,26 @@
+
+Only update when information is changed
+Input Information:
+
+Key: String
+Value: Integer
+
+
+O2Concentration: float
+PEEP: float
+RespiratoryRate: float
+TidalVolume: float
+
+Output information:
+
+Key: String
+Value: Integer
+
+PressurePeak: float
+PressureMean: float
+PEEP: float
+RespiratoryRate: float
+O2Concentration: float
+MVe: float
+VTi: float
+VTe: float
